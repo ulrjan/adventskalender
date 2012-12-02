@@ -1,6 +1,54 @@
-*.class
+import java.text.DecimalFormat;
+import java.util.LinkedList;
 
-# Package Files #
-*.jar
-*.war
-*.ear
+public class RandomNumberGenerator {
+
+  /**
+	 *  Implement the following algorithm: Start with a given seed, which is an integer between 1 and 99. 
+	 *	The number is then squared,  if necessary padded with zeros to 4 digits, and the second and third digit
+ 	 *	form the random number, which is also used as the new seed.
+	 * 	Your task is to implement this random number generator.
+	 *  Your program should read from standard input. 
+	 *  If a line contains an integer number between 1 and 99, 
+	 *  take this as the seed, calculate the next number and print it (without leading zeroes)
+	 *  to standard output followed by a newline character. If the input is 0, the program should
+	 *  terminate.
+	 *	Sample Input  12  99   7  0
+	 *	Sample Output  14   80  4
+	 **/
+	public static void main(String[] args) {
+		
+		int x = 36;	//seed number
+		int y;		
+		
+			if (x >= 1 && x <= 99 ){		//seed number between 1 and 99
+				y =x*x;						//square the seed number
+				
+			System.out.println( y);
+				
+		
+			    DecimalFormat df = new DecimalFormat("0000");
+		        System.out.println(df.format(y));		//pad the number to four digits
+			
+			
+		
+			String str = Integer.toString(y);
+		      
+		      int[] ia = new int[str.length()];
+		      
+		      int j = 0;
+		      for (char c : str.toCharArray()) {
+		         ia[j++] = Character.getNumericValue(c);
+		      }
+		      
+		      for (int k : ia) {
+		         System.out.println(df.format(k));
+		      }
+				
+			}	// second and third digit form random number
+			
+		
+	
+	}
+}
+	
